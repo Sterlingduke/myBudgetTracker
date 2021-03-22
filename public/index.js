@@ -112,7 +112,7 @@ function sendTransaction(isAdding) {
   populateTable();
   populateTotal();
   
-  // also send to server
+ 
   fetch("/api/transaction", {
     method: "POST",
     body: JSON.stringify(transaction),
@@ -129,16 +129,16 @@ function sendTransaction(isAdding) {
       errorEl.textContent = "Missing Information";
     }
     else {
-      // clear form
+   
       nameEl.value = "";
       amountEl.value = "";
     }
   })
   .catch(err => {
-    // fetch failed, so save in indexed db
+   
     saveRecord(transaction);
 
-    // clear form
+    
     nameEl.value = "";
     amountEl.value = "";
   });
